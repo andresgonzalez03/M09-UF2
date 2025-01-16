@@ -26,6 +26,10 @@ public class Motor extends Thread {
                     System.out.printf("%s: Decre. Objectiu: %d Actual: %d\n", getName(), potenciaObjectiu, potenciaActual);
                 }
                 Thread.sleep(1000);
+                while(potenciaActual == potenciaObjectiu) {
+                    Thread.sleep(100);
+                    if(potenciaActual == 0 && potenciaObjectiu == 0) break;
+                }
             } catch (InterruptedException e) {
                 System.err.println(getName() + " ha estat interromput.");
             }

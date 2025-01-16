@@ -32,19 +32,18 @@ public class Coet {
         Coet coet = new Coet();
         Scanner scanner = new Scanner(System.in);
 
+        int potencia = scanner.nextInt();
+
+        coet.passaAPotencia(potencia);
         coet.arranca();
 
         while (true) {
-            System.out.print("Introduce la potència objectiu (0 per aturar): ");
-            int potencia = scanner.nextInt();
+            potencia = scanner.nextInt();
+            coet.passaAPotencia(potencia);
             if (potencia == 0) {
-                System.out.println("Passant a potència 0");
-                coet.passaAPotencia(0);
                 break;
             }
-            coet.passaAPotencia(potencia);
         }
-
         try {
             for (Motor motor : coet.motors) {
                 motor.join();
