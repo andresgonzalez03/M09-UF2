@@ -19,24 +19,26 @@ public class Treballador extends Thread {
     }
 
     public void cobra() {
-        cobrat += sou_actual_brut / 12;
+        cobrat += sou_actual_brut / 12.0f;
     }
 
     public void pagaImpostos() {
-        cobrat -= cobrat * 0.24f;
+        cobrat -= (sou_actual_brut / 12.0f) * 0.24f;
     }
 
     public float getCobrat() {return cobrat;}
-    public int getEdat() {return edat_actual;}
+    public int getEdat() {return edat_actual;}  
 
     @Override
     public void run() {
         try {
             for(edat_actual = edat_inici_treball; edat_actual < edat_fi_treball; edat_actual++) {
-                cobra();
-                Thread.sleep(rdn.nextInt(100));
-                pagaImpostos();
-                Thread.sleep(rdn.nextInt(100));
+                for (int i = 0; i < 12; i++) {
+                    cobra();
+                    Thread.sleep(rdn.nextInt(10));
+                    pagaImpostos(); 
+                    Thread.sleep(rdn.nextInt(10)); 
+                }
             }
         } catch(InterruptedException e) {
             System.err.println(getName() + " ha estat interromput.");
