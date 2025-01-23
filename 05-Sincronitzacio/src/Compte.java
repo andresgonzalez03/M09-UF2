@@ -12,9 +12,7 @@ public class Compte {
         return instance;
     }
     public void setSaldo(float saldo) {
-        if(saldo > 0) {
-            this.saldo = saldo;
-        }
+        this.saldo = saldo;
     }
     public float getSaldo() {
         return saldo;
