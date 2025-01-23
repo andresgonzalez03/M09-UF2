@@ -21,7 +21,7 @@ public class Soci extends Thread {
     }
     @Override
     public void run() {
-        float saldo = Compte.getInstance().getSaldo();
+        float saldo = CompteInstance.getSaldo();
         for (int i = 0; i < maxAnys; i++) {
             for (int j = 1; j <= 12; j++) {
                 if(j%2 == 0) {
@@ -29,7 +29,7 @@ public class Soci extends Thread {
                 } else {
                     saldo -= aportacio;
                 }
-                Compte.getInstance().setSaldo(saldo);
+                CompteInstance.setSaldo(saldo);
             }            
             try {
                 Thread.sleep(rnd.nextInt(experaMax));
