@@ -13,7 +13,7 @@ public class Assistent extends Thread {
     @Override
     public void run() {
         while(true) {
-            if(rnd.nextInt() < 0.5) {
+            if(rnd.nextInt() < 0.3) {
                 esdeveniment.ferReserva(this);
             } else {
                 esdeveniment.cancelaReserva(this);
